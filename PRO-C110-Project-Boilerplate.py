@@ -6,6 +6,8 @@ import numpy as np
 
 
 # import the tensorflow modules and load the model
+import tensorflow as tf
+model = tf.keras.models.load_model('keras_model.h5')
 
 
 
@@ -32,7 +34,7 @@ while True:
 		expanded_img = np.array(img,dType=np.float32)
         expanded_img = np.expand_dims(expanded_img,axis = 0)
 		# normalize it before feeding to the model
-	    normalisedImg= test_img/255.0
+	         normalisedImg = expanded_img/255.0
 		# get predictions from the model
 		prediction = model.predict(normalisedImg)
         print("prediction: ",prediction  )
